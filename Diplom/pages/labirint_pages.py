@@ -16,7 +16,7 @@ class BasePage:
 
     @allure.step('Ожидание появления элемента {locator}')
     def wait_until_visible(self, locator):
-        return WebDriverWait(self.driver, EXPLICIT_WAIT_TIME).until(
+        return WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(locator))
 
     @allure.step('Щёлкнуть по элементу {locator}')
@@ -70,4 +70,3 @@ class HomePage(BasePage):
     def return_to_homepage(self):
         self.click(self.HOMEPAGE_LINK)
         return HomePage(self.driver)
-        
