@@ -1,8 +1,4 @@
 import os
-from dotenv import load_dotenv
-
-# Загружаем переменные среды из .env-файла
-load_dotenv()
 
 # Базовая информация о сайте и API
 LABIRINT_URL = os.getenv('LABIRINT_URL', 'https://www.labirint.ru/')
@@ -28,4 +24,4 @@ TIMEOUT_REQUEST = int(os.getenv('TIMEOUT_REQUEST', 10))
 REQUEST_RETRIES = int(os.getenv('REQUEST_RETRIES', 3))
 
 # Настройка Selenium (драйвер и опции)
-CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH', '/path/to/chromedriver')
+CHROME_DRIVER_PATH = r"C:\Users\OlgaV\.local\bin\chromedriver.exe"

@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from pages.labirint_pages import HomePage, SearchPage, GenresPage
-from config import LABIRINT_URL, SEARCH_KEYWORD, SEARCH_GENRE, SEARCH_CYRILLIC
+from config import CHROME_DRIVER_PATH, LABIRINT_URL, SEARCH_KEYWORD, SEARCH_GENRE, SEARCH_CYRILLIC
 import allure
 
 
@@ -10,7 +10,8 @@ import allure
 def browser_setup(request):
     options = Options()
     options.add_argument("--headless")
-    driver = webdriver.Chrome(options=options)
+    service = ChromeService(executable_path=CHROME_DRIVER_PATH)
+    driver = webdriver.Chrome(service=service, options=options)
     request.addfinalizer(lambda: driver.quit())
     return driver
 

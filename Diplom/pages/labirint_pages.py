@@ -32,9 +32,9 @@ class BasePage:
 
 
 class SearchPage(BasePage):
-    INPUT_SEARCH_FIELD = (By.ID, 'search-field')
-    BUTTON_SUBMIT_SEARCH = (By.CLASS_NAME, 'b-header-b-search-e-btn')
-    RESULTS_CONTAINER = (By.CSS_SELECTOR, '.products-row')
+    INPUT_SEARCH_FIELD = (By.ID, 'search-field')                 # Поле поиска
+    BUTTON_SUBMIT_SEARCH = (By.CLASS_NAME, 'b-header-b-search-e-btn')  # Кнопка поиска
+    RESULTS_CONTAINER = (By.CLASS_NAME, 'products-row')          # Контейнер с результатами
 
     def perform_search(self, keyword):
         self.send_text(keyword, self.INPUT_SEARCH_FIELD)
@@ -50,9 +50,8 @@ class SearchPage(BasePage):
 
 
 class GenresPage(BasePage):
-    GENRES_SECTION = (By.CLASS_NAME, 'subgenres')
-    GENRE_LINK_TEMPLATE = (
-        By.XPATH, "//a[contains(@href,'/genres/') and contains(text(),'{}')]")
+    GENRES_SECTION = (By.CLASS_NAME, 'subgenres')                       # Секция жанров
+    GENRE_LINK_TEMPLATE = (By.XPATH, "//a[contains(@href,'/genres/') and contains(text(),'{}')]")  # Генерируемая ссылка на жанр
 
     def go_to_genres_section(self):
         section = self.wait_until_visible(self.GENRES_SECTION)
@@ -65,7 +64,7 @@ class GenresPage(BasePage):
 
 
 class HomePage(BasePage):
-    HOMEPAGE_LINK = (By.LINK_TEXT, 'Главная')
+    HOMEPAGE_LINK = (By.LINK_TEXT, 'Главная')                           # Главная ссылка
 
     def return_to_homepage(self):
         self.click(self.HOMEPAGE_LINK)
