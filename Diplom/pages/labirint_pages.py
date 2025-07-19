@@ -69,3 +69,4 @@ class HomePage(BasePage):
     def return_to_homepage(self):
         self.click(self.HOMEPAGE_LINK)
         return HomePage(self.driver)
+    
